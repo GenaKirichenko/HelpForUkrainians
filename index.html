@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Допомога біженцям з України</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="background">
+    </div> 
+    <header>
+      <h1>
+        Допомога біженцям з України до країн Європейського Cоюзу
+      </h1>
+      <div class="hotline">
+        <strong>Гаряча лінія: </strong><a href="tel:+380441234567" class="phone-link">+38 (044) 123-45-67</a>
+      </div>
+      <div class="header-line"></div>
+    </header>
+<div class="filter-section">
+      <label for="serviceFilter">Оберіть послугу:</label>
+      <select id="serviceFilter">
+        <option value="all">Усі послуги</option>
+        <option value="housing">Проживання та житлова допомога</option>
+        <option value="legal">Юридична підтримка</option>
+        <option value="financial">Фінансова допомога</option>
+        <option value="medical">Медична допомога</option>
+        <option value="education">Освіта та інтеграція</option>
+        <option value="psychological">Психологічна підтримка</option>
+      </select>
+    </div>
+    <div id="modal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h2>Доступні послуги</h2>
+    <div id="modalLinks"></div>
+  </div>
+</div>
+    <button id="openModalBtn" class="button">Реєстрація</button>
+    <section>
+      <h2>Країни Європейського Союзу</h2>
+      <div class="country-list">
+        <a href="#" class="country-link austria" data-country="austria">
+  <span>Австрія</span>
+  <img src="./src/images/austria.jpg" alt="Австрія" />
+  <ul class="city-list-australia">
+       <li id="vidn">Відень</li>
+      <li id="graz">Грац</li>
+      <li id="zal">Зальцбург</li>
+      <li id="lin">Лінц</li>
+      <li id="ins">Інсбрук</li>
+    </ul>
+</a>
+        <a
+          href="#"
+          class="country-link belgium"
+          data-country="belgium"
+          ><span>Бельгія</span>
+  <img src="./src/images/belgia.jpg" alt="Бельгія" />
+  <ul class="city-list-belgia">
+      <li id="bru">Брюссель</li>
+      <li id="ant">Антверпен</li>
+      <li id="gent">Гент</li>
+      <li id="brug">Брюгге</li>
+      <li id="liez">Льєж</li>
+    </ul>
+</a>
+        <a
+          href="#"
+          class="country-link bulgaria"
+          data-country="bulgaria"
+          ><span>Болгарія</span>
+          <img src="./src/images/bolgaria.jpg" alt="Бельгія" />
+  <ul class="city-list-bulgaria">
+      <li id="sof">Софія</li>
+      <li id="plov">Пловдив</li>
+      <li id="var">Варна</li>
+      <li id="bur">Бургас</li>
+      <li id="rus">Русе</li>
+    </ul></a
+        >
+        <a
+          href="#"
+          class="country-link croatia"
+          data-country="croatia"
+          ><span>Хорватія</span>
+          <img src="./src/images/croatia2.jpg" alt="Хорватія" />
+  <ul class="city-list-croatia">
+      <li id="zag">Загреб</li>
+      <li id="spl">Спліт</li>
+      <li id="rie">Рієка</li>
+      <li id="dub">Дубровник</li>
+      <li id="osi">Осієк</li>
+    </ul></a
+        >
+        <a href="#" class="country-link poland" data-country="poland"
+          ><span>Польща</span>
+          <img src="./src/images/poland.jpg" alt="Польща" />
+  <ul class="city-list-poland">
+      <p>Невдовзі з'являться міста-волонтери від країни</p>
+    </ul></a
+        >
+        <a
+          href="#"
+          class="country-link germany"
+          data-country="germany"
+          ><span>Німеччина</span>
+          <img src="./src/images/germany.jpg" alt="Німеччина" />
+  <ul class="city-list-germany">
+    <p>Невдовзі з'являться міста-волонтери від країни</p>
+    </ul></a
+        >
+        <a href="#" class="country-link slovakia" data-country="slovakia">
+          <span>Словаччина</span>
+          <img src="./src/images/slovakia.jpg" alt="Словаччина" />
+          <ul class="city-list-slovakia">
+            <p>Невдовзі з'являться міста-волонтери від країни</p>
+            </ul>
+            <a href="#" class="country-link romania" data-country="romania">
+              <span>Румунія</span>
+              <img src="./src/images/romania.jpg" alt="Румунія" />
+              <ul class="city-list-romania">
+                <p>Невдовзі з'являться міста-волонтери від країни</p>
+              </ul>
+            </a>
+      </div>
+      
+      <div id="cityList" style="display: none">
+  <h2>Виберіть місто:</h2>
+  <span class="close-city-list">&times;</span>
+  <select id="citySelect">
+    <option value="">-- Виберіть місто --</option>
+  </select>
+  <button id="showCityButton">Показати місто</button>
+</div>
+
+
+    <div id="registrationModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="registrationForm">
+          <h2>Форма реєстрації</h2>
+          <label>
+            <span>Ім'я:</span>
+            <input type="text" name="user_name" required />
+          </label>
+          <label>
+            <span>Телефон:</span>
+            <input type="tel" name="user_phone" required />
+          </label>
+          <label>
+            <span>Email:</span>
+            <input type="text" name="user_email" required />
+          </label>
+          <button type="submit">Надіслати</button>
+        </form>
+      </div>
+    </div>
+    <div class="header-line"></div>
+    <section class="faq">
+      <h2>Часто задавані питання (FAQ)</h2>
+      <div class="faq-item">
+        <strong>1. Які документи мені потрібні для виїзду?</strong>
+        <p>
+          Зазвичай вам потрібен паспорт, віза (якщо це необхідно) та
+          підтвердження вашого статусу біженця.
+        </p>
+      </div>
+      <div class="faq-item">
+        <strong>2. Як я можу знайти житло в іншій країні?</strong>
+        <p>
+          Рекомендуємо звернутися до місцевих благодійних організацій
+          або урядових структур, які допомагають біженцям.
+        </p>
+      </div>
+      <div class="faq-item">
+        <strong>3. Чи можу я отримати фінансову допомогу?</strong>
+        <p>
+          Так, багато країн пропонують фінансову підтримку біженцям.
+          Зверніться до місцевих органів соціального захисту.
+        </p>
+      </div>
+    </section>
+    
+    <div class="header-line"></div>
+    <div class="map">
+      <h2>Google Map</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5443952.312726606!2d25.903110692291335!3d48.22241152251739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d1d9c154700e8f%3A0x1068488f64010!2z0KPQutGA0LDQuNC90LA!5e0!3m2!1sru!2sua!4v1731587387862!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+    <footer>"© 2025 Допомога біженцям. Усі права захищені."</footer>
+
+    <script type="module" src="main.js"></script>
+    <script src="./scripts.js"></script>
+  </body>
+</html>
+  

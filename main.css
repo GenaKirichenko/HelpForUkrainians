@@ -1,0 +1,953 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-image: url("./src/images/background.png"); /* Змініть шлях за потреби */
+  background-repeat: no-repeat; /* Забороняє повторення зображення */
+  background-size: cover; /* Зображення охоплює весь екран */
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #000000;
+  margin: 0;
+}
+
+.hotline {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.header-line {
+  height: 3px;
+  background-color: #000000;
+  margin: 10px auto;
+  width: 100%;
+}
+
+section h2 {
+  text-align: center;
+  margin: 20px 0;
+  color: #000000;
+}
+
+.country-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Чотири стовпці */
+  gap: 20px; /* Відступ між країнами */
+  margin: 20px 0;
+  padding: 10px; /* Додаємо невеликий відступ всередині */
+}
+
+.country-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%; /* Робимо ширину динамічною */
+  aspect-ratio: 1; /* Зберігаємо співвідношення сторін */
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: clamp(12px, 2vw, 24px); /* Адаптивний розмір шрифту */
+  transition: transform 0.3s, opacity 0.3s, font-size 0.3s; /* Додаємо плавний перехід для шрифту */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  overflow: hidden; /* Забезпечує правильний вигляд елементів */
+}
+
+.country-link span {
+  z-index: 1; /* Текст поверх зображення */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Темний фон для контрасту */
+  border-radius: 5px;
+  text-align: center;
+  font-size: inherit; /* Наслідує розмір шрифту від контейнера */
+}
+
+.country-link img {
+  width: 100%; /* Ширина зображення 100% контейнера */
+  border-bottom-left-radius: 15px; /* Закруглення нижнього лівого кута */
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px; /* Закруглення нижнього правого кута */
+  position: absolute; /* Фіксуємо зображення внизу */
+  bottom: 0; /* Приклеюємо до нижнього краю контейнера */
+  pointer-events: none;
+}
+
+.country-link:hover {
+  transform: translateY(-5px);
+  opacity: 0.9;
+}
+
+.austria {
+  background-color: #ebab34fd;
+}
+.belgium {
+  background-color: #e75d26;
+}
+.bulgaria {
+  background-color: #ebab34fd;
+}
+.croatia {
+  background-color: #e75d26;
+}
+.poland {
+  background-color: #3b383a;
+}
+.germany {
+  background-color: #3b383a;
+}
+.slovakia {
+  background-color: #3b383a;
+}
+.romania {
+  background-color: #3b383a;
+}
+
+.phone-link {
+  color: blue; /* Синій колір тексту */
+  text-decoration: none; /* Прибираємо підкреслення */
+  font-weight: bold; /* Жирний шрифт */
+  cursor: pointer; /* Курсор у вигляді руки */
+  transition: color 0.3s ease, font-size 1s ease;
+}
+
+.phone-link:hover {
+  color: darkblue; /* Темніший синій колір при наведенні */
+  text-decoration: underline yellow; /* Підкреслення при наведенні */
+  font-size: 20px;
+  transition: background-color 0.3s ease, font-size 1s ease;
+}
+
+button {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: rgb(
+    65,
+    3,
+    251
+  ); /* Використання змінної для кольору фону */
+  color: #ffffff;
+  padding: 15px 30px;
+  border: 5px solid transparent; /* Додаємо початковий бордер */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s ease, font-size 1s ease; /* Плавні переходи */
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  top: 0;
+  left: -100%;
+  animation: wave-animation 2s infinite linear; /* Анімація хвилі */
+}
+
+.button:hover {
+  border-color: black; /* Зміна кольору бордеру при наведенні */
+  color: gold; /* Зміна кольору тексту */
+  transition: color 0.5s ease, font-size 1s ease; /* Плавна зміна тексту та розміру */
+  font-size: 25px;
+  text-decoration: underline; /* Додавання підкреслення */
+}
+
+@keyframes wave-animation {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Темний фон */
+}
+
+.modal-content {
+  background-color: #fff;
+  position: absolute; /* Встановлюємо абсолютне позиціонування для центрування */
+  top: 50%; /* Центруємо по вертикалі */
+  left: 50%; /* Центруємо по горизонталі */
+  transform: translate(-50%, -50%); /* Зміщуємо в центр */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Додаємо тінь */
+  display: flex;
+  flex-direction: column; /* Вирівнюємо елементи в стовпчик */
+}
+
+.close {
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  align-self: flex-end; /* Вирівнюємо хрестик до правого краю */
+  color: #e74c3c; /* Яскравий червоний колір */
+}
+
+.close:hover {
+  color: #c0392b; /* Темніший червоний при наведенні */
+}
+
+h2 {
+  text-align: center;
+  color: #2980b9; /* Яскравий синій колір */
+  margin-bottom: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+label span {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #34495e; /* Темно-синій колір */
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  padding: 10px;
+  width: 90%;
+  height: 40px;
+  color: #2c3e50; /* Темно-синій колір */
+  background-color: #ecf0f1; /* Світло-сірий фон */
+  border: 1px solid #bdc3c7; /* Світло-сірий колір рамки */
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  border-color: #3498db; /* Яскравий синій при фокусі */
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+  padding: 10px;
+  background-color: #27ae60; /* Яскравий зелений колір */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #219150; /* Темніший зелений при наведенні */
+}
+
+.faq {
+  margin-top: 20px;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+#cityList {
+  display: none; /* Скрыто по умолчанию */
+  background-color: #e0f7fa; /* Светлый голубой фон */
+  border: 2px solid #00796b; /* Граница в тёмно-зелёном цвете */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Тень для красоты */
+  text-align: center;
+  width: 400px; /* Ширина контейнера */
+}
+
+#cityList h2 {
+  color: #00796b; /* Цвет заголовка */
+  font-size: 24px; /* Увеличенный шрифт заголовка */
+  margin-bottom: 20px;
+}
+
+.close-city-list {
+  position: absolute; /* Задаємо абсолютне позиціонування */
+  top: 10px; /* Відстань від верхнього краю */
+  right: 10px; /* Відстань від правого краю */
+  font-size: 24px; /* Збільшуємо розмір хрестика */
+  font-weight: bold; /* Робимо хрестик жирним */
+  cursor: pointer; /* Змінюємо курсор на pointer при наведенні */
+}
+
+.close-city-list:hover {
+  color: red; /* Зміна кольору при наведенні (опціонально) */
+}
+
+.city-list-australia {
+  display: none; /* Приховуємо список за замовчуванням */
+  position: absolute;
+  justify-content: center;
+  bottom: -23px; /* Встановлюємо, щоб список з'являвся знизу */
+  left: 50%;
+  transform: translateX(-50%); /* Центруємо список по горизонталі */
+  width: 93%; /* Розтягуємо список на ширину країни */
+  height: 61%; /* Обмежуємо висоту до 75% від висоти контейнера */
+  color: #000000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-y: auto; /* Додаємо прокручування, якщо елемент перевищує максимальну висоту */
+}
+
+.country-link:hover .city-list-australia {
+  display: block;
+  background-color: rgb(251, 238, 2); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+
+.city-list-australia li {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: clamp(
+    12px,
+    4vw,
+    19px
+  ); /* Адаптивний шрифт для мобільних */
+  white-space: nowrap; /* Забороняє тексту переноситися */
+  overflow: hidden; /* Прибирає вихід тексту за межі */
+  text-overflow: ellipsis; /* Додає три крапки, якщо текст занадто довгий */
+  transition: transform 0.5s ease, font-size 0.5s ease; /* Плавний ефект збільшення */
+}
+
+.city-list-australia li:hover {
+  transform: scale(1.2); /* Зміна кольору при наведенні на місто */
+}
+
+@media (max-width: 600px) {
+  /* Додаткові стилі для мобільних пристроїв */
+  .city-list-australia {
+    width: 100%; /* Контейнер займає всю ширину */
+    height: 100%; /* Встановлюємо висоту на всю висоту контейнера */
+    max-height: none; /* Забираємо обмеження висоти */
+    overflow-y: auto; /* Додаємо вертикальне прокручування */
+    overflow-x: hidden; /* Забороняємо горизонтальне прокручування */
+    padding: 10px; /* Більші внутрішні відступи */
+    border: 1px solid #ccc; /* Рамка для відділення */
+    border-radius: 8px; /* Закруглені кути */
+    background-color: #f9f9f9; /* Світлий фон для кращої видимості */
+  }
+
+  .city-list-australia li {
+    font-size: 14px; /* Зменшуємо шрифт для компактності */
+    margin: 8px 0; /* Зменшуємо відступи між містами */
+  }
+
+  .city-list-australia li:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease; /* Зменшуємо масштаб збільшення */
+  }
+
+  /* Для зручного скролінгу на мобільних пристроях */
+  .city-list-australia::-webkit-scrollbar {
+    width: 6px; /* Вузький скролбар */
+  }
+
+  .city-list-australia::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Колір смуги прокручування */
+    border-radius: 3px; /* Закруглення смуги прокручування */
+  }
+
+  .city-list-australia::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa; /* Темніший колір при наведенні */
+  }
+}
+
+.city-list-belgia {
+  display: none; /* Приховуємо список за замовчуванням */
+  position: absolute;
+  justify-content: center;
+  bottom: -23px; /* Встановлюємо, щоб список з'являвся знизу */
+  left: 50%;
+  transform: translateX(-50%); /* Центруємо список по горизонталі */
+  width: 93%; /* Розтягуємо список на ширину країни */
+  height: 61%; /* Обмежуємо висоту до 75% від висоти контейнера */
+  color: #000000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.country-link:hover .city-list-belgia {
+  display: block;
+  background-color: rgb(254, 157, 0); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+
+.city-list-belgia li {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: clamp(
+    12px,
+    4vw,
+    19px
+  ); /* Адаптивний шрифт для мобільних */
+  white-space: nowrap; /* Забороняє тексту переноситися */
+  overflow: hidden; /* Прибирає вихід тексту за межі */
+  text-overflow: ellipsis; /* Додає три крапки, якщо текст занадто довгий */
+  transition: transform 0.5s ease, font-size 0.5s ease; /* Плавний ефект збільшення */
+}
+
+.city-list-belgia li:hover {
+  transform: scale(1.2); /* Зміна кольору при наведенні на місто */
+}
+
+@media (max-width: 600px) {
+  /* Додаткові стилі для мобільних пристроїв */
+  .city-list-belgia {
+    width: 100%; /* Контейнер займає всю ширину */
+    height: 100%; /* Встановлюємо висоту на всю висоту контейнера */
+    max-height: none; /* Забираємо обмеження висоти */
+    overflow-y: auto; /* Додаємо вертикальне прокручування */
+    overflow-x: hidden; /* Забороняємо горизонтальне прокручування */
+    padding: 10px; /* Більші внутрішні відступи */
+    border: 1px solid #ccc; /* Рамка для відділення */
+    border-radius: 8px; /* Закруглені кути */
+    background-color: #f9f9f9; /* Світлий фон для кращої видимості */
+  }
+
+  .city-list-belgia li {
+    font-size: 14px; /* Зменшуємо шрифт для компактності */
+    margin: 8px 0; /* Зменшуємо відступи між містами */
+  }
+
+  .city-list-belgia li:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease; /* Зменшуємо масштаб збільшення */
+  }
+
+  /* Для зручного скролінгу на мобільних пристроях */
+  .city-list-belgia::-webkit-scrollbar {
+    width: 6px; /* Вузький скролбар */
+  }
+
+  .city-list-belgia::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Колір смуги прокручування */
+    border-radius: 3px; /* Закруглення смуги прокручування */
+  }
+
+  .city-list-belgia::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa; /* Темніший колір при наведенні */
+  }
+}
+
+.city-list-bulgaria {
+  display: none; /* Приховуємо список за замовчуванням */
+  position: absolute;
+  justify-content: center;
+  bottom: -23px; /* Встановлюємо, щоб список з'являвся знизу */
+  left: 50%;
+  transform: translateX(-50%); /* Центруємо список по горизонталі */
+  width: 93%; /* Розтягуємо список на ширину країни */
+  height: 61%; /* Обмежуємо висоту до 75% від висоти контейнера */
+  color: #000000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-y: auto; /* Додаємо прокручування, якщо елемент перевищує максимальну висоту */
+}
+
+.country-link:hover .city-list-bulgaria {
+  display: block;
+  background-color: rgb(251, 238, 2); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+
+.city-list-bulgaria li {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: clamp(
+    12px,
+    4vw,
+    19px
+  ); /* Адаптивний шрифт для мобільних */
+  white-space: nowrap; /* Забороняє тексту переноситися */
+  overflow: hidden; /* Прибирає вихід тексту за межі */
+  text-overflow: ellipsis; /* Додає три крапки, якщо текст занадто довгий */
+  transition: transform 0.5s ease, font-size 0.5s ease; /* Плавний ефект збільшення */
+}
+
+.city-list-bulgaria li:hover {
+  transform: scale(1.2); /* Зміна кольору при наведенні на місто */
+}
+
+@media (max-width: 600px) {
+  /* Додаткові стилі для мобільних пристроїв */
+  .city-list-bulgaria {
+    width: 100%; /* Контейнер займає всю ширину */
+    height: 100%; /* Встановлюємо висоту на всю висоту контейнера */
+    max-height: none; /* Забираємо обмеження висоти */
+    overflow-y: auto; /* Додаємо вертикальне прокручування */
+    overflow-x: hidden; /* Забороняємо горизонтальне прокручування */
+    padding: 10px; /* Більші внутрішні відступи */
+    border: 1px solid #ccc; /* Рамка для відділення */
+    border-radius: 8px; /* Закруглені кути */
+    background-color: #f9f9f9; /* Світлий фон для кращої видимості */
+  }
+
+  .city-list-bulgaria li {
+    font-size: 14px; /* Зменшуємо шрифт для компактності */
+    margin: 8px 0; /* Невеликий відступ між елементами */
+  }
+
+  .city-list-bulgaria li:hover {
+    transform: scale(1.05); /* Трохи збільшуємо при наведенні */
+    transition: transform 0.2s ease; /* Плавний ефект при збільшенні */
+  }
+
+  /* Для покращеного скролінгу */
+  .city-list-bulgaria::-webkit-scrollbar {
+    width: 6px; /* Вузький скролбар */
+  }
+
+  .city-list-bulgaria::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Колір смуги прокручування */
+    border-radius: 3px; /* Закруглення смуги прокручування */
+  }
+
+  .city-list-bulgaria::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa; /* Темніший колір при наведенні */
+  }
+}
+
+.city-list-croatia {
+  display: none; /* Приховуємо список за замовчуванням */
+  position: absolute;
+  justify-content: center;
+  bottom: -23px; /* Встановлюємо, щоб список з'являвся знизу */
+  left: 50%;
+  transform: translateX(-50%); /* Центруємо список по горизонталі */
+  width: 93%; /* Розтягуємо список на ширину країни */
+  height: 61%; /* Обмежуємо висоту до 75% від висоти контейнера */
+  color: #000000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-y: auto; /* Додаємо прокручування, якщо елемент перевищує максимальну висоту */
+}
+
+.country-link:hover .city-list-croatia {
+  display: block;
+  background-color: rgb(254, 157, 0); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+
+.city-list-croatia li {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: clamp(
+    12px,
+    4vw,
+    19px
+  ); /* Адаптивний шрифт для мобільних */
+  white-space: nowrap; /* Забороняє тексту переноситися */
+  overflow: hidden; /* Прибирає вихід тексту за межі */
+  text-overflow: ellipsis; /* Додає три крапки, якщо текст занадто довгий */
+  transition: transform 0.5s ease, font-size 0.7s ease; /* Плавний ефект збільшення */
+}
+
+.city-list-croatia li:hover {
+  transform: scale(1.2); /* Зменшуємо масштаб збільшення */
+}
+
+@media (max-width: 600px) {
+  /* Додаткові стилі для мобільних пристроїв */
+  .city-list-croatia {
+    width: 100%; /* Контейнер займає всю ширину */
+    height: 100%; /* Встановлюємо висоту на всю висоту контейнера */
+    max-height: none; /* Забираємо обмеження висоти */
+    overflow-y: auto; /* Додаємо вертикальне прокручування */
+    overflow-x: hidden; /* Забороняємо горизонтальне прокручування */
+    padding: 10px; /* Більші внутрішні відступи */
+    border: 1px solid #ccc; /* Рамка для відділення */
+    border-radius: 8px; /* Закруглені кути */
+    background-color: #f9f9f9; /* Світлий фон для кращої видимості */
+  }
+
+  .city-list-croatia li {
+    font-size: 14px; /* Зменшуємо шрифт для компактності */
+    margin: 8px 0; /* Зменшуємо відступи між містами */
+  }
+
+  .city-list-croatia li:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease; /* Зменшуємо масштаб збільшення */
+  }
+
+  /* Для зручного скролінгу на мобільних пристроях */
+  .city-list-croatia::-webkit-scrollbar {
+    width: 6px; /* Вузький скролбар */
+  }
+
+  .city-list-croatia::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Колір смуги прокручування */
+    border-radius: 3px; /* Закруглення смуги прокручування */
+  }
+
+  .city-list-croatia::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa; /* Темніший колір при наведенні */
+  }
+}
+
+.city-list-poland {
+  display: none; /* Приховуємо список за замовчуванням */
+  position: absolute;
+  justify-content: center;
+  bottom: -23px; /* Встановлюємо, щоб список з'являвся знизу */
+  left: 50%;
+  transform: translateX(-50%); /* Центруємо список по горизонталі */
+  width: 93%; /* Розтягуємо список на ширину країни */
+  height: 61%; /* Обмежуємо висоту до 75% від висоти контейнера */
+  color: #000000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  z-index: 1;
+}
+
+.country-link:hover .city-list-poland {
+  display: block;
+  background-color: rgb(107, 104, 106); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+
+.city-list-poland li {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.city-list-poland li:hover {
+  color: #000000;
+  font-size: 20px; /* Зміна кольору при наведенні на місто */
+}
+
+@media (max-width: 600px) {
+  /* Додаткові стилі для мобільних пристроїв */
+  .city-list-poland {
+    width: 100%; /* Контейнер займає менше місця */
+    height: auto; /* Автоматична висота для вмісту */
+    padding: 3px; /* Менше внутрішніх відступів */
+  }
+
+  .city-list-poland li {
+    font-size: 14px; /* Зменшуємо шрифт для компактності */
+    margin: 5px 0; /* Зменшуємо відступи між містами */
+  }
+
+  .city-list-poland li:hover {
+    transform: scale(1.05); /* Зменшуємо масштаб збільшення */
+  }
+}
+
+.city-list-germany {
+  display: none; /* Приховуємо список за замовчуванням */
+  position: absolute;
+  justify-content: center;
+  bottom: -23px; /* Встановлюємо, щоб список з'являвся знизу */
+  left: 50%;
+  transform: translateX(-50%); /* Центруємо список по горизонталі */
+  width: 93%; /* Розтягуємо список на ширину країни */
+  height: 61%; /* Обмежуємо висоту до 75% від висоти контейнера */
+
+  color: #000000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  z-index: 1;
+}
+
+.country-link:hover .city-list-germany {
+  display: block;
+  background-color: rgb(107, 104, 106); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+.country-link:hover .city-list-slovakia {
+  display: block;
+  background-color: rgb(107, 104, 106); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+.city-list-germany li {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.city-list-germany li:hover {
+  color: #000000;
+  font-size: 20px; /* Зміна кольору при наведенні на місто */
+}
+
+@media (max-width: 600px) {
+  /* Додаткові стилі для мобільних пристроїв */
+  .city-list-germany {
+    width: 100%; /* Контейнер займає менше місця */
+    height: auto; /* Автоматична висота для вмісту */
+    padding: 3px; /* Менше внутрішніх відступів */
+  }
+
+  .city-list-germany li {
+    font-size: 14px; /* Зменшуємо шрифт для компактності */
+    margin: 5px 0; /* Зменшуємо відступи між містами */
+  }
+
+  .city-list-germany li:hover {
+    transform: scale(1.05); /* Зменшуємо масштаб збільшення */
+  }
+}
+.city-list-slovakia {
+  display: none; /* Приховуємо список за замовчуванням */
+  position: absolute;
+  justify-content: center;
+  bottom: -23px; /* Встановлюємо, щоб список з'являвся знизу */
+  left: 50%;
+  transform: translateX(-50%); /* Центруємо список по горизонталі */
+  width: 93%; /* Розтягуємо список на ширину країни */
+  height: 61%; /* Обмежуємо висоту до 75% від висоти контейнера */
+
+  color: #000000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  z-index: 1;
+}
+
+.country-link:hover .city-list-slovakia {
+  display: block;
+  background-color: rgb(107, 104, 106); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+.country-link:hover .city-list-slovakia {
+  display: block;
+  background-color: rgb(107, 104, 106); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+.city-list-slovakia li {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.city-list-slovakia li:hover {
+  color: #000000;
+  font-size: 20px; /* Зміна кольору при наведенні на місто */
+}
+
+@media (max-width: 600px) {
+  /* Додаткові стилі для мобільних пристроїв */
+  .city-list-slovakia {
+    width: 100%; /* Контейнер займає менше місця */
+    height: auto; /* Автоматична висота для вмісту */
+    padding: 3px; /* Менше внутрішніх відступів */
+  }
+
+  .city-list-slovakia li {
+    font-size: 14px; /* Зменшуємо шрифт для компактності */
+    margin: 5px 0; /* Зменшуємо відступи між містами */
+  }
+
+  .city-list-slovakia li:hover {
+    transform: scale(1.05); /* Зменшуємо масштаб збільшення */
+  }
+}
+.city-list-romania {
+  display: none; /* Приховуємо список за замовчуванням */
+  position: absolute;
+  justify-content: center;
+  bottom: -23px; /* Встановлюємо, щоб список з'являвся знизу */
+  left: 50%;
+  transform: translateX(-50%); /* Центруємо список по горизонталі */
+  width: 93%; /* Розтягуємо список на ширину країни */
+  height: 61%; /* Обмежуємо висоту до 75% від висоти контейнера */
+
+  color: #000000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  z-index: 1;
+}
+
+.country-link:hover .city-list-romania {
+  display: block;
+  background-color: rgb(107, 104, 106); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+.country-link:hover .ccity-list-romania {
+  display: block;
+  background-color: rgb(107, 104, 106); /* Фон для списку */
+  /* Показуємо список при наведенні на країну */
+}
+.city-list-romania li {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.city-list-romania li:hover {
+  color: #000000;
+  font-size: 20px; /* Зміна кольору при наведенні на місто */
+}
+
+@media (max-width: 600px) {
+  /* Додаткові стилі для мобільних пристроїв */
+  .city-list-romania {
+    width: 100%; /* Контейнер займає менше місця */
+    height: auto; /* Автоматична висота для вмісту */
+    padding: 3px; /* Менше внутрішніх відступів */
+  }
+
+  .city-list-romania li {
+    font-size: 14px; /* Зменшуємо шрифт для компактності */
+    margin: 5px 0; /* Зменшуємо відступи між містами */
+  }
+
+  .city-list-romania li:hover {
+    transform: scale(1.05); /* Зменшуємо масштаб збільшення */
+  }
+}
+
+#citySelect {
+  width: 100%; /* Ширина select на всю ширину блока */
+  padding: 10px;
+  font-size: 18px; /* Увеличенный шрифт */
+  border: 2px solid #00796b; /* Граница у select */
+  border-radius: 5px;
+  margin-bottom: 20px; /* Отступ под кнопкой */
+}
+
+#showCityButton {
+  padding: 10px 20px;
+  font-size: 18px; /* Увеличенный шрифт кнопки */
+  color: white;
+  background-color: #00796b; /* Тёмно-зелёный фон */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#showCityButton:hover {
+  background-color: #004d40; /* Темнее при наведении */
+}
+
+.map {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -70px;
+  margin-bottom: -50px;
+}
+
+h2 {
+  color: black;
+  font-size: 40px;
+}
+
+iframe {
+  width: 80vw;
+  height: 60vh;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50%;
+}
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+}
+
+#serviceFilter {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+label {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
