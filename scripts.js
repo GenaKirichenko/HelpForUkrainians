@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
           url: "https://hck.hr",
         },
       ],
-      financial: [{
+      ,financial: [{
         name: "одробиці про фінансову допомогу на офіційному урядовому порталі(Грац)",
         url: "https://www.bundeskanzleramt.gv.at",
       },{
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
 
       ]
-     medical:[{
+     ,medical:[{
           name: "Медичні послуги для біженців – UNHCR(Відень)",
           url: "https://www.unhcr.org",
         },
@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
           url: "https://zdravstvo.gov.hr",
         },
 ]
-education:[
+,education:[
 
 
 {
@@ -405,7 +405,7 @@ education:[
 ]
 
 
-psychological:[
+,psychological:[
 
 {
           name: "Психологічна підтримка від Caritas(Грац)",
