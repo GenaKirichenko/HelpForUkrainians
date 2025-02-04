@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
           url: "https://hck.hr",
         },
       ],
-      ,financial: [{
+      financial: [{
         name: "одробиці про фінансову допомогу на офіційному урядовому порталі(Грац)",
         url: "https://www.bundeskanzleramt.gv.at",
       },{
@@ -258,8 +258,8 @@ document.addEventListener("DOMContentLoaded", function () {
           url: "https://www.caritas-linz.at",
         },
 {
-          name: "Екстрена допомога – Медичне обслуговування українських біженців(Брюссель
-)",
+          name: "Екстрена допомога – Медичне обслуговування українських біженців(Брюссель)"
+,
           url: "https://www.brussels.be/healthcare",
         },
 {
@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
           url: "https://www.refugee.bg",
         },
 {
-          name: "Фонд "Добро"(Пловдив)",
+          name: "Фонд Добро(Пловдив)",
           url: "https://www.dobro.bg",
         },
 {
@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 {
           name: "Ознайомлення з Брюсселем(Брюссель)",
-          url: https://www.integration.brussels",
+          url: "https://www.integration.brussels",
         },
 {
           name: "Мовні курси – Atlas Брюгге(Брюгге)",
@@ -491,8 +491,9 @@ document.addEventListener("DOMContentLoaded", function () {
           name: "Консультації психологів – Служба невідкладної допомоги(Загреб)",
           url: "https://bolnica-vrapce.hr",
         },
-    };
-]
+      ]
+    }
+
     const modalLinksContainer = document.getElementById("modalLinks");
     modalLinksContainer.innerHTML = "";
 
