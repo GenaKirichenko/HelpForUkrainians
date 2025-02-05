@@ -6,10 +6,61 @@ export function openRusInfo() {
         <head>
           <title>Допомога Україні в місті Відень</title>
           <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; }
-            h1 { color: #007bff; }
-            a { color: #007bff; text-decoration: none; }
-            a:hover { text-decoration: underline; }
+            body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #a4b8c4;
+      background-size: cover;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #ffffff;
+      text-align: center;
+      margin: 20px 0;
+      font-size: 2rem;
+      text-shadow: 1px 1px 4px rgba(253, 252, 252, 0.5);
+    }
+
+    .container {
+      max-width: 1000px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2);
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    
+
+    .content {
+      text-align: justify;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    a {
+      color:rgb(179, 138, 62);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #ffffff;
+      text-shadow: 1px 1px 4px rgb(255, 255, 255);
+    }
           </style>
         </head>
         <body>
